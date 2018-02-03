@@ -29,6 +29,6 @@ This software has been released under the MIT license:
            VIEWS - all_views type information 
            COLUMNS - all_tab_columns type information 
            ROUTINES - a combination of all procedures and all source 
-           DOMAINS - all_types type informaation 
+           DOMAINS - all_types type information 
            get_proc_text - support function for ROUTINES
            
