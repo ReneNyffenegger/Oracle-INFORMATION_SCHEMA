@@ -32,3 +32,13 @@ This software has been released under the MIT license:
            DOMAINS - all_types type information 
            get_proc_text - support function for ROUTINES
            
+
+     Version 0.1b (René Nyffeengger)
+        Adding minimal support for
+           triggers,
+           table_constraints
+        so as to make it possible to migrate Oracle to MySQL
+        with MySQL workbench
+        It turns out, the Workbench python scripts use as
+        for table aliases which is not supported by Oracle.
+        Oh well…

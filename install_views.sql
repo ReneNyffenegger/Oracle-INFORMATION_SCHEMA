@@ -7,3 +7,7 @@ connect information_schema/information_schema
 @ schemata
 @ tables
 @ views
+
+-- René Nyffeengger, 2019-10-22
+@ triggers
+@ table_constraints

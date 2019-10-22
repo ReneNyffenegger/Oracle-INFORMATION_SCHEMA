@@ -14,11 +14,17 @@ grant create public synonym to information_schema;
 grant select on props$      to information_schema with grant option;
 
 -- Rene Nyffenegger, 2018-02-03
-grant select on sys.all_procedures to information_schema with grant option;
-grant select on sys.all_tables     to information_schema with grant option;
-grant select on sys.all_types      to information_schema with grant option;
-grant select on sys.all_users      to information_schema with grant option;
-grant select on sys.all_views      to information_schema with grant option;
+grant select on sys.all_procedures  to information_schema with grant option;
+grant select on sys.all_tables      to information_schema with grant option;
+grant select on sys.all_types       to information_schema with grant option;
+grant select on sys.all_users       to information_schema with grant option;
+grant select on sys.all_views       to information_schema with grant option;
+grant select on sys.all_triggers    to information_schema with grant option;
+
+-- Rene Nyffenegger, 2019-10-22:
+grant select on sys.all_objects     to information_schema with grant option;
+grant select on sys.all_tab_columns to information_schema with grant option;
+grant select on sys.all_constraints to information_schema with grant option;
 
 alter user information_schema default role connect, resource, select_catalog_role;
 

@@ -27,7 +27,12 @@ SELECT * FROM (
     SELECT SYS_CONTEXT('userenv', 'DB_NAME') TABLE_CATALOG,
            owner TABLE_SCHEMA,
            table_name, 
-           data_type,
+           column_name                       column_name,          -- René Nyffenegger, 2019-10-22: Add new column 
+           case data_type 
+                when 'VARCHAR2' then 'VARCHAR'
+                when 'NUMBER'   then 'REAL'
+                else  data_type
+           end                               data_type,            -- René Nyffenegger, 2019-10-22: Make data types more SQL standard conformant
            data_type_mod,
            decode(data_type_owner, null, to_char(null), SYS_CONTEXT('userenv', 'DB_NAME')) domain_catalog,
            data_type_owner domain_schema,
@@ -36,6 +41,7 @@ SELECT * FROM (
            data_length,
            data_precision numeric_precision,
            data_scale numeric_scale,
+           data_scale                        datetime_precision,   -- René Nyffenegger, 2019-10-22: Add new column
            nullable is_nullable,
            column_id ordinal_position,
            default_length,
@@ -50,9 +56,10 @@ SELECT * FROM (
            sample_size,
            SYS_CONTEXT('userenv', 'DB_NAME') character_set_catalog,
            'SYS' character_set_schema,
+           character_set_name,
            SYS_CONTEXT('userenv', 'DB_NAME') collation_catalog,
            'SYS' collation_schema,
-           character_set_name,
+           null                              collation_name,       -- René Nyffenegger, 2019-10-22: Add new column (being null for the time being)
            char_col_decl_length,
            global_stats,
            user_stats,
